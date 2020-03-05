@@ -1,4 +1,5 @@
 import React from 'react';
+import GifSearch from './GifSearch';
 import GifListContainer from './GifListContainer'
 
 
@@ -18,6 +19,7 @@ export default class App extends React.Component {
   }
 
   handleClick = (event) => {
+    event.preventDefault();
     fetch(getUrl(document.querySelector('#search').value))
     .then(res => res.json())
     .then(json => {
@@ -31,9 +33,7 @@ export default class App extends React.Component {
     return (
       <div>
         < NavBar color='black' title="Giphy Search" />
-        <input type="text" id="search" placeholder="Search..." />
-        <button onClick={this.handleClick}>Search</button>
-
+        <GifSearch handleClick={this.handleClick} />
         <GifListContainer images={this.state.images} />
       </div>
     );
