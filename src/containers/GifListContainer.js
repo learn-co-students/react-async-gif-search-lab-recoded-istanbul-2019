@@ -29,9 +29,8 @@ class GifListContainer extends Component {
   render() {
     return (
       <div>
-        asdadsasda
-        <GifList gifResults={this.state.gifResults}></GifList>
         <GifSearch searchHandler={this.searchHandler}></GifSearch>
+        <GifList gifResults={this.state.gifResults}></GifList>
       </div>
     )
   }

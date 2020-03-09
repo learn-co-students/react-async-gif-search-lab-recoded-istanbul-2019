@@ -9,10 +9,10 @@ class GifSearch extends Component {
 
   render() {
     return (
-      <form>
+      <div>
         <input type='text' onChange={this.handleSearch}></input>
         
-      </form>
+      </div>
     )
   }
 }

@@ -5,13 +5,13 @@ class GifList extends Component {
 
   render() {
 
-     const list = this.props.gifResults.map(item=>{
+     const gifList = this.props.gifResults.map(item=>{
     <li key={item.id}> <img src={item.images.original.url}/></li>
     })
 
     return (
       <ul>
-        {list}
+        {gifList}
       </ul>
     )
   }
