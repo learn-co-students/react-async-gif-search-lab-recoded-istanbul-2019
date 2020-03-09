@@ -25,8 +25,11 @@ class GifListContainer extends Component {
 
       })
     }
+    
 
   render() {
+
+    console.log(this.state)
     return (
       <div>
         <GifSearch searchHandler={this.searchHandler}></GifSearch>

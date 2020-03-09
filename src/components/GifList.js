@@ -8,6 +8,7 @@ class GifList extends Component {
      const gifList = this.props.gifResults.map(item=>{
     <li key={item.id}> <img src={item.images.original.url}/></li>
     })
+    console.log(gifList)
 
     return (
       <ul>
