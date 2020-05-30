@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 
 import GifList from '../components/GifList'
+import GifSearch from '../components/GifSearch'
+
 
 class GifListContainer extends Component {
 
@@ -9,23 +11,26 @@ class GifListContainer extends Component {
     }
 
     componentDidMount() {
-        fetch('https://api.giphy.com/v1/gifs/search?q=YOUR QUERY HERE&api_key=dc6zaTOxFJmzC&rating=g')
-        .then(res => res.json())
-        .then(data => {
-            this.setState({
-                images: data.data
-            })
-        })  
+        this.fetchData()
     }
-    
-    
 
+    fetchData = async (query) => {
+        const data = await fetch(`https://api.giphy.com/v1/gifs/search?q=${query}&api_key=dc6zaTOxFJmzC&rating=g`)
+        const result = await data.json();
+        this.setState({
+          images: result.data
+        });
+      };
+ 
     render() {
         return (
-            // <div> {this.state.images.map(curr => {
-            //     return <img key={curr.id} src={curr.images.original.url} alt={curr.id}/>
-            // })}</div>
-            <GifList images={this.state.images} />
+            <div> 
+                <GifSearch fetchData={this.fetchData}/>
+                <GifList images={this.state.images} />
+                
+            </div>
+            
+            
         )
     }
 }
